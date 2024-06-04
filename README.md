@@ -1,33 +1,26 @@
-> _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
-
 # Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+DEPT® Weather Planner.
 
 ## Inhoudsopgave
-
   * [Beschrijving](#beschrijving)
-  * [Gebruik](#gebruik)
-  * [Kenmerken](#kenmerken)
   * [Installatie](#installatie)
-  * [Bronnen](#bronnen)
+  * [Instructies](#instructies)
   * [Licentie](#licentie)
 
 ## Beschrijving
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+Het concept is simpel: je gaat een website maken, getiteld "DEPT® Weather Planner". Hier kun je je creativiteit laten zien!
 
-## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+### Screenshot
+<img width="880" alt="Scherm­afbeelding 2024-06-04 om 19 20 27" src="https://github.com/Remy2072/proof-of-concept/assets/70781820/445bdf84-c5c3-43d2-bca2-570314ca3908">
 
-## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
+### Live link
+...
 
 ## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+Wanneer je het project hebt geforked en gekloond, kun je het openen in je editor. Open in je editor de terminal en installeer de volgende dingen: **NPM**, **Node.js** en **Nodemon**. Als dat allemaal is geïnstalleerd, kun je de site runnen met het volgende commando: `npm run dev` en dan draait de server lokaal.
 
-## Bronnen
+## Instructies
+[docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
 
 ## Licentie
-
 This project is licensed under the terms of the [MIT license](./LICENSE).
