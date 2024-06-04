@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+<body>
+    <%- include('./partials/nav') %>
+    <main>
+        <ul>
+            <% arts.forEach(art => { %>
+                <li data-id="<%= art.id %>" data-museum="<%= art.museum %>" data-artist="<%= art.artist %>">
+                    <img src="https://fdnd-agency.directus.app/assets/<%= art.image %>" alt="<%= art.title %>" width="100" height="100">
+                </li>
+            <% }); %>
+        </ul>
+
+        <section class="filter-section">
+            <ul class="filter-list">
+                <li class="filter-item">
+                    <button>ALL OBJECTS</button>
+                </li>
+                <li class="filter-item">
+                    <button>POTTERY</button>
+                </li>
+                <li class="filter-item">
+                    <button>ISLAMIC ART</button>
+                </li>
+                <li class="filter-item">
+                    <button>TAPESTRY</button>
+                </li>
+                <li class="filter-item">
+                    <button>GLASS</button>
+                </li>
+            </ul>
+
+            <form class="search-form">
+                <label aria-label="searchbar"></label>
+                <input type="search" placeholder="SEARCH THE COLLECTION">
+                <button type="submit" aria-label="search"></button>
+            </form>
+        </section>
+    </main>
+    <%- include('./partials/footer') %>
+</body>
+</html>
