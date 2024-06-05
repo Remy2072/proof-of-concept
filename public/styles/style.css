@@ -34,10 +34,11 @@ nav {
     background-color: var(--white);
     padding: 0.1rem;
     border-bottom: 0.1rem solid var(--black);
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 5;
+    width: 100%;
 }
 
 nav .nav-list {
@@ -69,7 +70,6 @@ nav .nav-list .nav-item:nth-child(1),
 nav .nav-list .nav-item:last-child::before {
     display: inline-block;
     content: url('../assets/icon-menu.svg');
-    background-color: var(--black);
     width: 24px;
     height: 24px;
 }
@@ -79,13 +79,34 @@ nav .nav-list .nav-item:last-child::before {
 } */
 
 /* ============================================= */
+/* Canvas */
+/* ============================================= */
+canvas {
+    border: 0.5rem solid var(--black);
+}
+
+.canvas-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.canvas-item {
+    margin: 0.5rem;
+    background-color: var(--dark-grey);
+}
+/* ============================================= */
 /* Filter */
 /* ============================================= */
 .filter-section {
-    position: sticky;
+    position: fixed;
     bottom: 0;
     left: 0;
     z-index: 5;
+    width: 100%;
 }
 
 .filter-section .filter-list {
