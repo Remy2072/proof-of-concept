@@ -88,16 +88,53 @@ h1 {
 /* Grid area 2 */
 .area-2 {
     grid-area: area-2;
-    background-color: var(--c100);
+    background-color: #f2f2f2;
     display: flex;
     padding: 1rem;
 }
 
-h2 {
+.heading-forecast {
     margin-top: 2.75rem;
     font-size: var(--heading-6);
     font-weight: 400;
 }
+
+.submit-text {
+    margin-top: 1.25rem;
+    text-align: center;
+    width: 100%;
+    height: 3rem;
+    border: 1px solid var(--black);
+    border-radius: 62.5rem;
+    color: var(--black);
+    background-color: transparent;
+}
+
+.submit-text:focus {
+    border: 1px solid var(--purple);
+    box-shadow: 0 0 3px var(--purple);
+    outline-offset: 0px;
+    outline: none;
+    transition: 0.5s;
+}
+
+.submit-button {
+    margin-top: 1.25rem;
+    width: 100%;
+    height: 3rem;
+    border: 1px solid var(--black);
+    background-color: var(--black);
+    border-radius: 62.5rem;
+    color: var(--white);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
 
 /* Grid area 3 */
 .area-3 {
@@ -132,11 +169,6 @@ h2 {
             "footer footer";
     }
 
-    .area-1 {
-        display: flex;
-        justify-content: flex-end;
-    }
-
     .content-wrapper {
         width: calc((var(--wrapper-width) / 2) * 1px);
     }
@@ -154,11 +186,15 @@ h2 {
     }
 
     .area-2 {
-        display: flex;
         justify-content: flex-end;
     }
 
-    .area-3 {
-        display: flex;
+    .submit-text {
+        width: 11.875rem;
+        margin-right: 10px;
+    }
+
+    .submit-button {
+        width: 5.25rem;
     }
 }
