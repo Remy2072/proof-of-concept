@@ -1,4 +1,4 @@
-
+// Area 1 read more button
 document.querySelector('.read-more-container').addEventListener('click', event => {
     const target = event.target;
 
