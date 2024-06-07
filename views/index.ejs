@@ -4,16 +4,12 @@
 <body>
     <%- include('./partials/nav') %>
     <main>
-        <canvas id="canvas"></canvas>
         <ul class="canvas-list">
-            <% arts.forEach(art => { %>
-                <li class="canvas-item" data-id="<%= art.id %>" data-museum="<%= art.museum %>" data-artist="<%= art.artist %>">
-                    <!-- <picture> -->
-                        <!-- <source srcset="https://fdnd-agency.directus.app/assets/<%= art.image %>?format=webp" type="image/webp"> -->
-                        <img loading="lazy" src="https://fdnd-agency.directus.app/assets/<%= art.image %>" alt="<%= art.title %>" width="100" height="100">
-                    <!-- </picture> -->
-                </li>
-            <% }); %>
+        <% arts.forEach((art, index) => { %>
+            <li class="canvas-item">
+                <img class="canvas-img" data-number="<%= index + 1 %>" loading="lazy" src="https://fdnd-agency.directus.app/assets/<%= art.image %>" alt="<%= art.title %>" width="100" height="100">
+            </li>
+        <% }); %>
         </ul>
 
         <section class="filter-section">
