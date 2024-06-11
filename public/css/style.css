@@ -108,32 +108,36 @@ h1 {
 }
 
 .forecast-datum {
-    margin-top: 30px;
+    margin-top: 1.875rem;
 }
 
 .forecast-ul {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 30px;
+    gap: 1.875rem;
 }
 
 .temp::before {
     /* display: block; */
     content: url(/img/zon.svg);
     margin-right: 10px;
-    height: 24px;
-    width: 24px;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 .water::before {
     content: url(/img/regen.svg);
-    margin-right: 20px;
+    margin-right: 1.25rem;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 .wind::after {
     content: url(/img/pijl.svg);
     margin-left: 8px;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 hr {
@@ -189,11 +193,11 @@ hr {
     width: 100%;
     height: auto;
     border-radius: 6px;
-    padding: 20px;
+    padding: 1.25rem;
 }
 
 .widget-temp {
-    font-size: 90px;
+    font-size: 5.625rem;
     font-weight: 500;
 }
 
@@ -212,7 +216,7 @@ hr {
 }
 
 .activities {
-    margin-top: 30px;
+    margin-top: 1.875rem;
 }
 
 .activities-heading {
@@ -229,14 +233,14 @@ hr {
 }
 
 .list-img {
-    margin-top: 20px;
+    margin-top: 1.25rem;
     width: 100%;
-    height: 130px;
+    height: 8.125rem;
     object-fit: cover;
 }
 
 .list-title {
-    margin-top: 20px;
+    margin-top: 1.25rem;
     font-size: var(--heading-6);
     font-weight: 500;
 }
@@ -249,7 +253,7 @@ hr {
 }
 
 .list-line {
-    margin-top: 20px;
+    margin-top: 1.25rem;
     display: block;
     width: 100%;
     border: 1px solid #e5e5e5;
@@ -274,7 +278,7 @@ hr {
         display: flex;
         flex-direction: row;
         align-items: baseline;
-        gap: 24px;
+        gap: 1.5rem;
     }
 
     hr {
@@ -299,13 +303,13 @@ hr {
     .widget {
         display: flex;
         flex-direction: row;
-        padding: 30px;
-        gap: 24px;
+        padding: 1.875rem;
+        gap: 1.5rem;
     }
 
     .widget-temp {
-        font-size: 80px;
-        margin-top: 25px;
+        font-size: 5rem;
+        margin-top: 1.5625rem;
     }
 
     .widget-heading {
@@ -317,11 +321,11 @@ hr {
     }
 
     .activities {
-        margin-top: 50px;
+        margin-top: 3.125rem;
     }
 
     .activities:nth-child(2) {
-        margin-top: 20px;
+        margin-top: 1.25rem;
     }
 
     .list-item {
@@ -338,12 +342,12 @@ hr {
     }
 
     .list-img {
-        width: 109px;
-        height: 109px;
+        width: 6.8125rem;
+        height: 6.8125rem;
     }
 
     .list-title {
-        margin-top: 20px;
+        margin-top: 1.25rem;
         font-size: var(--heading-5);
         font-weight: 500;
     }
@@ -384,6 +388,6 @@ hr {
     }
 
     .widget-temp {
-        margin-top: 50px;
+        margin-top: 3.125rem;
     }
 }
