@@ -4,13 +4,17 @@
 <body>
     <%- include('./partials/nav') %>
     <main>
+
+        <form method="post" action="index.ejs">
         <ul class="canvas-list">
-        <% arts.forEach((art, index) => { %>
-            <li class="canvas-item">
-                <img class="canvas-img" data-number="<%= index + 1 %>" loading="lazy" src="https://fdnd-agency.directus.app/assets/<%= art.image %>" alt="<%= art.title %>" width="100" height="100">
+        <% arts.slice(0, 9).forEach((art, index) => { %>
+            <li class="canvas-item" data-number="<%= index + 1 %>" data-id="<%= art.id %>">
+                <img class="canvas-img" loading="lazy" src="https://fdnd-agency.directus.app/assets/<%= art.image %>" alt="<%= art.title %>" width="100" height="100">
             </li>
         <% }); %>
         </ul>
+        <button type="submit" class="btn-secondary">LOAD MORE</button>
+        </form>
 
         <section class="filter-section">
             <ul class="filter-list">

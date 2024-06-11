@@ -24,6 +24,32 @@ body {
 }
 
 /* ============================================= */
+/* Buttons */
+/* ============================================= */
+.btn-primary {
+    background-color: var(--dark-grey);
+    color: var(--white);
+    padding: 1rem;
+    outline: none;
+    text-decoration: none;
+    border: 0.1rem solid var(--dark-grey);
+}
+
+.btn-secondary {
+    background-color: var(--yellow);
+    color: var(--black);
+    padding: 1rem;
+    outline: none;
+    text-decoration: none;
+    border: 0.1rem solid var(--black);
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    background-color: var(--black);
+    color: var(--white);
+    border: 0.1rem solid var(--black);
+}
+/* ============================================= */
 /* Navigation */
 /* ============================================= */
 nav {
@@ -34,10 +60,6 @@ nav {
     background-color: var(--white);
     padding: 0.1rem;
     border-bottom: 0.1rem solid var(--black);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 5;
     width: 100%;
 }
 
@@ -81,6 +103,13 @@ nav .nav-list .nav-item:last-child::before {
 /* ============================================= */
 /* Canvas */
 /* ============================================= */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .canvas-list {
     display: flex;
     flex-direction: row;
@@ -88,19 +117,27 @@ nav .nav-list .nav-item:last-child::before {
     align-items: center;
     flex-wrap: wrap;
     list-style-type: none;
+    width: 100%;
+    height: 10rem;
+    padding: 1rem;
+    overflow-y: scroll;
+    background-color: var(--yellow);
 }
 
 .canvas-item {
     margin: 0.5rem;
+    background-color: var(--dark-grey);
+    width: calc(100%/3 - 1rem);
+}
+
+.canvas-item img {
+    width: 100%;
+    object-fit: cover;
 }
 /* ============================================= */
 /* Filter */
 /* ============================================= */
 .filter-section {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 5;
     width: 100%;
 }
 
