@@ -2,77 +2,78 @@
 <html lang="en">
 <%- include('./partials/head') %>
 <body>
-    <%- include('./partials/nav') %>
     <main>
+        <!-- ========================================= -->
+        <!-- Navigationbar -->
+        <!-- ========================================= -->
+        <%- include('./partials/nav') %>
+
         <!-- ========================================= -->
         <!-- Canvas section -->
         <!-- ========================================= -->
-        <section class="section-canvas">
-            <h2>CANVAS</h2>
+        <div class="section-canvas">
             <ul class="canvas-list">
                 <% arts.slice(0, 9).forEach((art, index) => { %>
                     <li class="canvas-item" data-number="<%= index + 1 %>" data-id="<%= art.id %>">
                         <img class="canvas-img" loading="lazy" src="https://fdnd-agency.directus.app/assets/<%= art.image %>" alt="<%= art.title %>" width="100" height="100">
                     </li>
                 <% }); %>
-        </section>
+        </div>
 
         <!-- ========================================= -->
         <!-- Direction section -->
         <!-- ========================================= -->
-        <section class="section-direction">
-            <h2>LOAD MORE</h2>
+        <div class="section-direction">
             <form action="/" method="post">
                 <ul class="direction-list">
                     <li class="direction-item">
                         <label for="direction-left" aria-label="direction-left"></label>
-                        <input type="radio" name="direction" id="direction-left" value="left">
+                        <input type="radio" name="direction" id="direction-left" value="left" required>
                     </li>
                     <li class="direction-item">
                         <label for="direction-down" aria-label="direction-down"></label>
-                        <input type="radio" name="direction" id="direction-down" value="down">
+                        <input type="radio" name="direction" id="direction-down" value="down" required>
                     </li>
                     <li class="direction-item">
                         <label for="direction-right" aria-label="direction-right"></label>
-                        <input type="radio" name="direction" id="direction-right" value="right">
+                        <input type="radio" name="direction" id="direction-right" value="right" required>
                     </li>
                     <li class="direction-item">
                         <label for="direction-up" aria-label="direction-up"></label>
-                        <input type="radio" name="direction" id="direction-up" value="up">
+                        <input type="radio" name="direction" id="direction-up" value="up" required>
                     </li>
                 </ul>
 
-                <button type="submit">LOAD MORE</button>
+                <button type="submit" class="btn-secondary">LOAD MORE</button>
             </form>
-        </section>
+        </div>
 
         <!-- ========================================= -->
         <!-- Filter section -->
         <!-- ========================================= -->
-        <section class="section-filter">
-            <h2>FILTER</h2>
+        <div class="section-filter">
             <form action="/" method="post">
                 <!-- ========================================= -->
                 <!-- Filter options -->
                 <!-- ========================================= -->
                 <ul class="filter-list">
-                    <li class="filter-item">
+                    <li class="filter-item btn-tertiary">
                         <label for="filter-all">ALL OBJECTS</label>
                         <input type="radio" name="filter" id="filter-all" value="ALL OBJECTS">
                     </li>
-                    <li class="filter-item">
+                    <li class="filter-item btn-tertiary">
                         <label for="filter-pottery">POTTERY</label>
                         <input type="radio" name="filter" id="filter-pottery" value="POTTERY">
                     </li>
-                    <li class="filter-item">
+                    <li class="filter-item btn-tertiary">
                         <label for="filter-islamic">ISLAMIC ART</label>
                         <input type="radio" name="filter" id="filter-islamic" value="ISLAMIC ART">
                     </li>
-                    <li class="filter-item">
+                    <li class="filter-item btn-tertiary">
                         <label for="filter-tapestry">TAPESTRY</label>
                         <input type="radio" name="filter" id="filter-tapestry" value="TAPESTRY">
                     </li>
-                    <li class="filter-item">
+                    <li class="filter-item btn-tertiary">
                         <label for="filter-glass">GLASS</label>
                         <input type="radio" name="filter" id="filter-glass" value="GLASS">
                     </li>
@@ -80,12 +81,12 @@
                 <!-- ========================================= -->
                 <!-- Search box -->
                 <!-- ========================================= -->
-                <div>
+                <div class="search-box">
                     <input type="text" placeholder="SEARCH THE COLLECTION">
-                    <button type="submit">SEARCH</button>
+                    <button type="submit" aria-label="search"></button>
                 </div>
             </form>
-        </section>
+        </div>
     </main>
     <%- include('./partials/footer') %>
 </body>
