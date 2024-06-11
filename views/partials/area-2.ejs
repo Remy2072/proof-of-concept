@@ -1,8 +1,8 @@
 <section class="area-2">
     <div class="content-wrapper">
-    <ul class="ul-container">
-        <h2 class="heading-forecast">Upcoming 5 days</h2>
-        <% allForecast.forEach(forecast => { %>
+        <ul class="ul-container">
+            <li><h2 class="heading-forecast">Upcoming 5 days</h2></li>
+            <% allForecast.forEach(forecast => { %>
             <li class="forecast-info">
                 <p class="forecast-datum"><%= forecast.date %></p>
                 <ul class="forecast-ul">
@@ -11,20 +11,17 @@
                     <li class="wind"><%= forecast.windDirection %></li>
                 </ul>
             </li>
-        <% }); %>
-    </ul>
+            <% }); %>
+        </ul>
     </div>
-      
     <!-- <hr> -->
-
     <div class="content-wrapper">
-            <h2 class="heading-forecast2">Want to get a daily forecast?</h2>
-            <form action="https://dtnl-frontend-case.vercel.app/api/post-subscribe" method="post">
-                <label for="email" aria-label="email-form">
-                    <input class="submit-text" type="email" id="email" name="email" placeholder="Enter your e-mailaddress" required>
-                </label>
-                <button class="submit-button" type="submit">Submit</button>
-            </form>
+        <h2 class="heading-forecast2">Want to get a daily forecast?</h2>
+        <form action="https://dtnl-frontend-case.vercel.app/api/post-subscribe" method="post">
+            <label for="email" aria-label="email-form">
+                <input class="submit-text" type="email" id="email" name="email" placeholder="Enter your e-mailaddress" required>
+            </label>
+            <button class="submit-button" type="submit">Submit</button>
+       </form>
     </div>
-
-</section>
+ </section>
