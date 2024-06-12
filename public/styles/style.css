@@ -130,8 +130,9 @@ nav .nav-list .nav-item:last-child button::before {
     flex: 8;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
+    overflow-y: scroll;
 }
 
 .section-canvas form {
@@ -166,13 +167,14 @@ nav .nav-list .nav-item:last-child button::before {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .canvas-item:nth-child(3n) {
     margin-right: 0;
 }
 
-.canvas-item img {
+.canvas-item picture img {
     width: 100%;
     height: 100%;
     object-fit: cover;

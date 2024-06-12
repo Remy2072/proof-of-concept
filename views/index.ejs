@@ -18,8 +18,21 @@
                 <form method="post" action="/">
                     <ul class="canvas-list">
                         <% arts.forEach((art, index) => { %>
-                            <li class="canvas-item" data-number="<%= index + 1 %>" data-id="<%= art.id %>">
-                                <img class="canvas-img" loading="lazy" src="https://fdnd-agency.directus.app/assets/<%= art.image %>" alt="<%= art.title %>" width="100" height="100">
+                            <li class="canvas-item" 
+                            data-number="<%= index + 1 %>" 
+                            data-id="<%= art.id %>"
+                            data-slug="<%= art.slug %>">
+                                <picture>
+                                    <source 
+                                    src="https://fdnd-agency.directus.app/assets/<%= art.image %>?format=webp&fit=cover&width=100&height=100" type="image/webp">
+
+                                    <img 
+                                    class="canvas-img" 
+                                    loading="lazy" 
+                                    src="https://fdnd-agency.directus.app/assets/<%= art.image %>?fit=cover&width=100&height=100" alt="<%= art.title %>" 
+                                    width="100" 
+                                    height="100">
+                                </picture>
                             </li>
                         <% }); %>
                     </ul>

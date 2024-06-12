@@ -7,7 +7,7 @@ import fetchJson from './helpers/fetch-json.js'
 // Haal data op uit de FDND API, ga pas verder als de data gedownload is
 const apiUrl = 'https://fdnd-agency.directus.app/items/'
 const f_fabrique_art_objects = apiUrl + 'fabrique_art_objects'
-const imageArray = []
+let imageArray = []
 
 // Maak een nieuwe express app aan
 const app = express()
@@ -23,28 +23,37 @@ app.use(express.static('public'))
 //Verwerken van url-gecodeerde data in POST-verzoeken
 app.use(express.urlencoded({extended: true}))
 
-// GET route voor de index pagina
+// Cache de afbeeldingen voor 1 dag zodat ze sneller ingeladen worden
+app.use((request, response, next) => {
+    response.set('Cache-Control', 'public, max-age=86400') // Cache voor 1 dag
+    next()
+})
+
 app.get('/', function (request, response) {
     fetchJson(f_fabrique_art_objects).then((arts) => {
-        if (imageArray.length <= 0) {
-            arts.forEach(art => {
-                // imageArray.push(art.id)
-                imageArray = arts.data.slice(0, 12).map(art => art.id)
-            })
-        } else {
-            console.log("array is niet leeg")
+        if (imageArray.length === 0) {
+            // Haal de eerste 12 IDs
+            imageArray = arts.data.slice(0, 12).map(art => art.id)
         }
-        response.render('index', {arts: arts.data, images: imageArray})
+        // Haal kunstwerken op basis van imageArray IDs
+        const selectedArts = arts.data.filter(art => imageArray.includes(art.id))
+        console.log(imageArray)
+        response.render('index', { arts: selectedArts, images: imageArray })
     })
 })
 
 // POST route voor de index pagina
 app.post('/', function (request, response) {
     fetchJson(f_fabrique_art_objects).then((arts) => {
-        // Voeg 3 nieuwe IDs toe aan imageArray
-        const newIds = arts.data.slice(12, 15).map(art => art.id)
+        // Voeg 3 willekeurige nieuwe IDs toe aan imageArray die nog niet aanwezig zijn
+        let newIds = []
+        while (newIds.length < 3) {
+            const randomArt = arts.data[Math.floor(Math.random() * arts.data.length)]
+            if (!imageArray.includes(randomArt.id) && !newIds.includes(randomArt.id)) {
+                newIds.push(randomArt.id)
+            }
+        }
         imageArray = [...imageArray, ...newIds]
-        // Herlaad de pagina
         response.redirect('/')
     })
 })
