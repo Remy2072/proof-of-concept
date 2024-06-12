@@ -109,22 +109,41 @@ nav .nav-list .nav-item:nth-child(1),
     display: none;
 }
 
-nav .nav-list .nav-item:last-child::before {
-    display: inline-block;
-    content: url('../assets/icon-menu.svg');
-    width: 24px;
-    height: 24px;
+nav .nav-list .nav-item:last-child button {
+    background: none;
+    outline: none;
+    border: none;
+    overflow: hidden;
 }
 
-/* nav .nav-list .nav-item:last-child::after {
-    content: "MENU";
-} */
+nav .nav-list .nav-item:last-child button::before {
+    display: inline-block;
+    content: url('../assets/icon-menu.svg');
+    width: 1rem;
+    height: 1rem;
+}
 
 /* ============================================= */
 /* Section Canvas */
 /* ============================================= */
 .section-canvas {
-    flex: 3;
+    flex: 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-canvas form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.section-canvas form button {
+    width: 100%;
 }
 
 .canvas-list {
@@ -135,81 +154,30 @@ nav .nav-list .nav-item:last-child::before {
     flex-wrap: wrap;
     list-style-type: none;
     width: 100%;
-    padding: 1rem;
     overflow-y: scroll;
-    background-color: var(--yellow);
 }
 
 .canvas-item {
-    margin: 0.5rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
     background-color: var(--dark-grey);
-    width: calc(100%/3 - 1rem);
+    flex: 1 0 calc(33.3333% - 1rem);
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.canvas-item:nth-child(3n) {
+    margin-right: 0;
 }
 
 .canvas-item img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
 }
-/* ============================================= */
-/* Section Direction */
-/* ============================================= */
-.section-direction {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    width: 100%;
-    flex: 1;
-    background-color: var(--white);
-    border-top: 0.1rem solid var(--black);
-    border-bottom: 0.1rem solid var(--black);
-    padding: 1rem;
-}
 
-.section-direction form {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.direction-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    list-style-type: none;
-    flex: 4;
-}
-
-.section-direction form button[type=submit] {
-    flex: 1;
-    text-wrap: nowrap;
-    padding: 1rem;
-}
-
-.section-direction form .direction-list .direction-item:nth-of-type(1)::before {
-    content: "➤";
-    display: inline-block;
-    transform: rotate(180deg);
-}
-
-.section-direction form .direction-list .direction-item:nth-of-type(2)::before {
-    content: "➤";
-    display: inline-block;
-    transform: rotate(90deg);
-}
-
-.section-direction form .direction-list .direction-item:nth-of-type(3)::before {
-    content: "➤";
-    display: inline-block;
-}
-
-.section-direction form .direction-list .direction-item:nth-of-type(4)::before {
-    content: "➤";
-    display: inline-block;
-    transform: rotate(270deg);
-}
 /* ============================================= */
 /* Section Filter */
 /* ============================================= */
@@ -226,7 +194,7 @@ nav .nav-list .nav-item:last-child::before {
     align-items: center;
     overflow-x: scroll;
     list-style-type: none;
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
 }
 
 .section-filter .filter-list .filter-item {

@@ -7,6 +7,7 @@ import fetchJson from './helpers/fetch-json.js'
 // Haal data op uit de FDND API, ga pas verder als de data gedownload is
 const apiUrl = 'https://fdnd-agency.directus.app/items/'
 const f_fabrique_art_objects = apiUrl + 'fabrique_art_objects'
+const imageArray = []
 
 // Maak een nieuwe express app aan
 const app = express()
@@ -25,7 +26,26 @@ app.use(express.urlencoded({extended: true}))
 // GET route voor de index pagina
 app.get('/', function (request, response) {
     fetchJson(f_fabrique_art_objects).then((arts) => {
-        response.render('index', {arts: arts.data})
+        if (imageArray.length <= 0) {
+            arts.forEach(art => {
+                // imageArray.push(art.id)
+                imageArray = arts.data.slice(0, 12).map(art => art.id)
+            })
+        } else {
+            console.log("array is niet leeg")
+        }
+        response.render('index', {arts: arts.data, images: imageArray})
+    })
+})
+
+// POST route voor de index pagina
+app.post('/', function (request, response) {
+    fetchJson(f_fabrique_art_objects).then((arts) => {
+        // Voeg 3 nieuwe IDs toe aan imageArray
+        const newIds = arts.data.slice(12, 15).map(art => art.id)
+        imageArray = [...imageArray, ...newIds]
+        // Herlaad de pagina
+        response.redirect('/')
     })
 })
 

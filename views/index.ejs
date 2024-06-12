@@ -12,40 +12,20 @@
         <!-- Canvas section -->
         <!-- ========================================= -->
         <div class="section-canvas">
-            <ul class="canvas-list">
-                <% arts.slice(0, 9).forEach((art, index) => { %>
-                    <li class="canvas-item" data-number="<%= index + 1 %>" data-id="<%= art.id %>">
-                        <img class="canvas-img" loading="lazy" src="https://fdnd-agency.directus.app/assets/<%= art.image %>" alt="<%= art.title %>" width="100" height="100">
-                    </li>
-                <% }); %>
-        </div>
-
-        <!-- ========================================= -->
-        <!-- Direction section -->
-        <!-- ========================================= -->
-        <div class="section-direction">
-            <form action="/" method="post">
-                <ul class="direction-list">
-                    <li class="direction-item">
-                        <label for="direction-left" aria-label="direction-left"></label>
-                        <input type="radio" name="direction" id="direction-left" value="left" required>
-                    </li>
-                    <li class="direction-item">
-                        <label for="direction-down" aria-label="direction-down"></label>
-                        <input type="radio" name="direction" id="direction-down" value="down" required>
-                    </li>
-                    <li class="direction-item">
-                        <label for="direction-right" aria-label="direction-right"></label>
-                        <input type="radio" name="direction" id="direction-right" value="right" required>
-                    </li>
-                    <li class="direction-item">
-                        <label for="direction-up" aria-label="direction-up"></label>
-                        <input type="radio" name="direction" id="direction-up" value="up" required>
-                    </li>
-                </ul>
-
-                <button type="submit" class="btn-secondary">LOAD MORE</button>
-            </form>
+            <% if (arts.length <= 0) { %>
+                <p>NO IMAGES FOUND</p>
+            <% } else { %>
+                <form method="post" action="/">
+                    <ul class="canvas-list">
+                        <% arts.forEach((art, index) => { %>
+                            <li class="canvas-item" data-number="<%= index + 1 %>" data-id="<%= art.id %>">
+                                <img class="canvas-img" loading="lazy" src="https://fdnd-agency.directus.app/assets/<%= art.image %>" alt="<%= art.title %>" width="100" height="100">
+                            </li>
+                        <% }); %>
+                    </ul>
+                    <button type="submit" class="btn-secondary">LOAD MORE</button>
+                </form>
+                <% } %>
         </div>
 
         <!-- ========================================= -->
