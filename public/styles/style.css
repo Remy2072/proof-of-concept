@@ -26,6 +26,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body[lang="ar"] {
+    direction: rtl;
+    text-align: right;
+}
+
 main {
     height: 100%;
     display: flex;
@@ -94,19 +99,44 @@ nav .nav-list {
     justify-content: center;
     align-items: center;
     list-style-type: none;
+    font-weight: 600;
 }
 
 nav .nav-list .nav-item {
     padding: 0.5rem;
     text-wrap: nowrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+    height: 100%;
+}
+
+nav .nav-list .nav-item p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 nav .nav-list .nav-item:nth-child(1),
 .nav-list .nav-item:nth-child(2),
 .nav-list .nav-item:nth-child(3),
-.nav-list .nav-item:nth-child(5),
-.nav-list .nav-item:nth-child(6) {
+.nav-list .nav-item:nth-child(4),
+.nav-list .nav-item:nth-child(6),
+.nav-list .nav-item:nth-child(7),
+.nav-list .nav-item:nth-child(8) {
     display: none;
+}
+
+nav .nav-list .nav-item:nth-child(8) button {
+    display: inline-block;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 nav .nav-list .nav-item:last-child button {
@@ -116,11 +146,27 @@ nav .nav-list .nav-item:last-child button {
     overflow: hidden;
 }
 
+nav .nav-list .nav-item:nth-child(6) p::before {
+    display: inline-block;
+    content: url('../assets/icon-member.svg');
+    width: 1rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+}
+
+nav .nav-list .nav-item:nth-child(7) p::before {
+    display: inline-block;
+    content: url('../assets/icon-location.svg');
+    width: 1rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+}
+
 nav .nav-list .nav-item:last-child button::before {
     display: inline-block;
     content: url('../assets/icon-menu.svg');
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 /* ============================================= */
@@ -237,4 +283,28 @@ nav .nav-list .nav-item:last-child button::before {
     display: inline-block;
     width: 1rem;
     height: 1rem;
+}
+
+.arabic .section-filter div button {
+    right: auto;
+    left: 1rem;
+}
+
+/* ============================================= */
+/* Media Query */
+/* ============================================= */
+@media only screen and (min-width: 768px) {
+    nav .nav-list .nav-item:nth-child(1),
+    .nav-list .nav-item:nth-child(2),
+    .nav-list .nav-item:nth-child(3),
+    .nav-list .nav-item:nth-child(4),
+    .nav-list .nav-item:nth-child(6),
+    .nav-list .nav-item:nth-child(7),
+    .nav-list .nav-item:nth-child(8) {
+        display: block;
+    }
+
+    .canvas-item {
+        flex: 1 0 calc(20% - 1rem);
+    }
 }
