@@ -1,12 +1,13 @@
 <section class="area-3">
     <div class="content-wrapper">
         <div class="widget">
-            <h3 class="widget-temp">24˚</h3>
+            <h3 class="widget-temp"><%= weather3.temp %>˚</h3>
             <div>
-                <h4 class="widget-heading">It's currently around  ~24˚ in the Netherlands</h4>
-                <p class="widget-text">Very sunny, and very unsual for in the Netherlands. But we should enjoy it as long as it lasts.</p>
+                <h4 class="widget-heading"><%= weather2[1].title %></h4>
+                <p class="widget-text"><%= weather2[1].description %></p>
             </div>
         </div>
+
         <div class="activities">
             <h5 class="activities-heading">Some things you could do:</h5>
             <ul class="activities-list">
@@ -36,6 +37,7 @@
                 </li>
             </ul>
         </div>
+        
         <div class="activities">
             <h5 class="activities-heading">Some things you should not do:</h5>
             <ul class="activities-list">

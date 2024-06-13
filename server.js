@@ -5,7 +5,7 @@ import fetchJson from "./helpers/fetch-json.js";
 // Define API URLs
 const apiUrl = "https://dtnl-frontend-case.vercel.app/api/";
 const forecast = await fetchJson(apiUrl + "/get-forecast");
-// const weather = await fetchJson(apiUrl + "/get-weather") ;
+const weather = await fetchJson(apiUrl + "/get-weather");
 
 // Create a new express app
 const app = express();
@@ -22,18 +22,16 @@ app.use(express.urlencoded({ extended: true }));
 
 // Define the route for the home page
 app.get("/", function (request, response) {
-    fetchJson(forecast);
-    response.render("index", {
-        allForecast: forecast.forecast,
+    fetchJson(forecast).then((forecast2) => {
+        fetchJson(weather).then((weather2) => {
+            response.render("index", {
+                weather2: weather.weatherInfo,
+                weather3: weather.temperature,
+                forecast2: forecast.forecast,
+            });
+        });
     });
 });
-
-// app.get('/', function(request, response){
-//     fetchJson(weather)
-//     response.render('index', {
-//         allWeather: weather.weatherInfo
-//     })
-// })
 
 // Set the port number for the express app
 const port = process.env.PORT || 8000;

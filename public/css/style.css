@@ -324,10 +324,6 @@ hr {
         margin-top: 3.125rem;
     }
 
-    .activities:nth-child(2) {
-        margin-top: 1.25rem;
-    }
-
     .list-item {
         display: flex;
         gap: 12px;
@@ -372,7 +368,7 @@ hr {
     }
 
     .content-wrapper {
-        width: calc((var(--wrapper-width) / 2) * 1px);
+        max-width: calc((var(--wrapper-width) / 2) * 1px);
     }
 
     h1 {
