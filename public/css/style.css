@@ -183,7 +183,7 @@ hr {
 /* Grid area 3 */
 .area-3 {
     grid-area: area-3;
-    background-color: var(--white);
+    background-color: #ffffff;
     display: flex;
     padding: 1rem;
 }
