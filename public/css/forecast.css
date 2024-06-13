@@ -1,0 +1,139 @@
+.area-2 {
+    grid-area: area-2;
+    background-color: var(--c25);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 1rem;
+    position: relative;
+}
+
+.heading-forecast {
+    margin-top: 2.75rem;
+    font-size: var(--heading-6);
+    font-weight: 400;
+}
+
+.forecast-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.forecast-datum {
+    margin-top: 1.875rem;
+}
+
+.forecast-ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.875rem;
+}
+
+.forecast-ul li {
+    display: flex;
+    align-items: center;
+}
+
+.temp::before {
+    content: url(/img/zon.svg);
+    margin-right: 10px;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.water::before {
+    content: url(/img/regen.svg);
+    margin-right: 1.25rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    transform: translateY(2px);
+}
+
+.wind::after {
+    content: url(/img/pijl.svg);
+    margin-left: 8px;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.forecast-border {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.forecast-border::before {
+    background-color: transparent;
+}
+
+.heading-forecast2 {
+    margin-top: 2.75rem;
+    font-size: var(--heading-6);
+    font-weight: 400;
+}
+
+.submit-text {
+    margin-top: 1.25rem;
+    text-align: center;
+    width: 100%;
+    height: 3rem;
+    border: 1px solid var(--black);
+    border-radius: 62.5rem;
+    color: var(--black);
+    background-color: transparent;
+}
+
+.submit-text:focus {
+    border: 1px solid var(--purple);
+    box-shadow: 0 0 3px var(--purple);
+    outline-offset: 0px;
+    outline: none;
+    transition: 0.5s;
+}
+
+.submit-button {
+    margin-top: 1.25rem;
+    width: 100%;
+    height: 3rem;
+    border: 1px solid var(--black);
+    background-color: var(--black);
+    border-radius: 62.5rem;
+    color: var(--white);
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+    .forecast-info {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 1.5rem;
+    }
+
+    .forecast-border .content-wrapper {
+        padding-top: 10px;
+    }
+
+    .forecast-border::before {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: var(--c150);
+        position: absolute;
+        left: 0;
+    }
+
+    .heading-forecast2 {
+        margin-top: 1rem;
+    }
+
+    .submit-text {
+        width: 11.875rem;
+        margin-right: 10px;
+    }
+
+    .submit-button {
+        width: 5.25rem;
+    }
+}

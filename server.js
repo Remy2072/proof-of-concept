@@ -23,13 +23,24 @@ app.get("/", async function (request, response) {
     const forecast = await fetchJson(apiUrl + "/get-forecast");
     const weather = await fetchJson(apiUrl + "/get-weather");
     const activities = await fetchJson(apiUrl + "/get-things-to-do");
-
     response.render("index", {
         weather2: weather.weatherInfo,
         weather3: weather.temperature,
         forecast2: forecast.forecast,
+        forecast: forecast.forecast || [],
         activities2: activities.activities
     });
+    
+    if (Array.isArray(forecast.forecast)) {
+          const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+     
+          forecast.forecast.forEach(forecast => {
+            const date = new Date(forecast.date);
+            const dayIndex = date.getUTCDay();
+            forecast.dayOfWeek = daysOfWeek[dayIndex];
+          });
+          console.log(forecast)
+        }
 });
 
 // Set the port number for the express app
@@ -40,3 +51,5 @@ app.set("port", port);
 app.listen(port, () => {
     console.log(`Application started on http://localhost:${port}`);
 });
+
+

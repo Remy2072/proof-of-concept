@@ -39,7 +39,7 @@ document.addEventListener('scroll', handleScroll, {
     passive: true
 })
 
-// Introduction 1 read more button
+// Introduction read more button
 document.querySelector('.read-more-container').addEventListener('click', event => {
     const target = event.target;
 
