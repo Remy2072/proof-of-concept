@@ -62,7 +62,7 @@ h1 {
 .read-more {
     margin-top: 1.875rem;
     color: white;
-    font-weight: 400; 
+    font-weight: 400;
     line-height: 1.8;
 }
 
@@ -377,13 +377,23 @@ hr {
 
     .read-more {
         font-size: var(--heading-6);
+        font-weight: 100;
     }
 
     .read-more-btn {
         font-size: var(--heading-6);
+        font-weight: 100;
     }
 
     .widget-temp {
         margin-top: 3.125rem;
+    }
+
+    .widget-text {
+        font-weight: 100;
+    }
+
+    .list-description {
+        font-weight: 100;
     }
 }
