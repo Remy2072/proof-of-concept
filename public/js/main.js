@@ -27,6 +27,7 @@ const handleScroll = throttle(() => {
     if (isTop) {
 
         const color = window.getComputedStyle(isTop.target).getPropertyValue('background-color')
+        console.log(color)
         if (color) {
             document.querySelector('meta[name="theme-color"]')?.setAttribute('content', color);
         }

@@ -1,6 +1,6 @@
 .area-3 {
     grid-area: area-3;
-    background-color: var(--white);
+    background-color: red;
     display: flex;
     padding: 1rem;
 }
