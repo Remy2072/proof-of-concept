@@ -37,6 +37,10 @@ main {
     flex-direction: column;
 }
 
+.hidden {
+    display: none;
+}
+
 /* ============================================= */
 /* Buttons */
 /* ============================================= */
@@ -167,6 +171,19 @@ nav .nav-list .nav-item:last-child button::before {
     content: url('../assets/icon-menu.svg');
     width: 1.5rem;
     height: 1.5rem;
+}
+
+nav .nav-list .nav-item:nth-child(8) {
+    position: relative;
+}
+
+.tool-tip {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 0.5rem;
+    position: absolute;
+    bottom: -3.5rem;
+    left: -5rem;
 }
 
 /* ============================================= */
