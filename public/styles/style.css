@@ -201,14 +201,13 @@ nav .nav-list .nav-item:last-child button::before {
     flex-wrap: wrap;
     list-style-type: none;
     width: 100%;
-    overflow-y: scroll;
 }
 
 .canvas-item {
     margin-right: 1rem;
     margin-bottom: 1rem;
     background-color: var(--dark-grey);
-    flex: 1 0 calc(33.3333% - 1rem);
+    width: calc(100%/3 - 1rem);
     height: 5rem;
     display: flex;
     align-items: center;
@@ -305,6 +304,15 @@ nav .nav-list .nav-item:last-child button::before {
     }
 
     .canvas-item {
-        flex: 1 0 calc(20% - 1rem);
+        flex: 1 0 calc(100%/5 - 1rem);
+        height: 10rem;
+    }
+
+    .canvas-item:nth-child(3n) {
+        margin-right: 1rem;
+    }
+
+    .canvas-item:nth-child(5n) {
+        margin-right: 0;
     }
 }
