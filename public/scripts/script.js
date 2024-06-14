@@ -38,3 +38,18 @@ btnLanguage.addEventListener("mouseout", toolTipToggle);
 function toolTipToggle() {
     toolTip.classList.toggle('hidden');
 }
+// ============================================
+// Toggle tooltip voor kunstwerk titel
+// ============================================
+const imageToolTips = document.querySelectorAll('.image-tooltip');
+const imageArts = document.querySelectorAll('.canvas-item');
+
+imageArts.forEach((art, index) => {
+    art.addEventListener("mouseover", function() {
+        imageToolTips[index].classList.toggle('hidden');
+    });
+
+    art.addEventListener("mouseout", function() {
+        imageToolTips[index].classList.toggle('hidden');
+    });
+});
