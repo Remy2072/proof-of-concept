@@ -34,7 +34,7 @@ app.get('/', function (request, response) {
         // Check of imageArray leeg is
         if (imageArray.length === 0) {
             // Haal de eerste 12 IDs op en voeg ze toe aan de imageArray
-            imageArray = arts.data.slice(0, 12).map(art => art.id)
+            imageArray = arts.data.slice(0, 18).map(art => art.id)
         }
         // Check of elke item ID deel is van de imageArray en haal ze op
         const selectedArts = arts.data.filter(art => imageArray.includes(art.id))
@@ -62,8 +62,18 @@ app.post('/', function (request, response) {
         }
         // Voeg de newIds array toe aan de imageArray
         imageArray = [...imageArray, ...newIds]
-        // Redirect terug naar de index pagina
-        response.redirect('/')
+
+        if (request.body.enhanced) {
+            // Render de index pagina
+            fetchJson(f_fabrique_art_objects).then((arts) => {
+                const selectedArts = arts.data.filter(art => imageArray.includes(art.id))
+                response.render('index', { arts: selectedArts, images: imageArray })
+        })
+        } else {
+            // Redirect terug naar de index pagina
+            response.redirect('/')
+        }
+
     })
 })
 

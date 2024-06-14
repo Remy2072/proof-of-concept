@@ -140,6 +140,10 @@ nav .nav-list .nav-item:nth-child(1),
     display: none;
 }
 
+nav .nav-list .nav-item:last-child {
+    margin-right: 0;
+}
+
 nav .nav-list .nav-item:nth-child(8) button {
     display: inline-block;
     background: none;
@@ -177,8 +181,8 @@ nav .nav-list .nav-item:nth-child(7) p::before {
 nav .nav-list .nav-item:last-child button::before {
     display: inline-block;
     content: url('../assets/icon-menu.svg');
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 30px;
+    height: 24px;
 }
 
 nav .nav-list .nav-item:nth-child(8) {
