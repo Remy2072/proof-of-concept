@@ -32,13 +32,13 @@ Scroll door de canvas heen om nieuwe afbeeldingen in te laden en de collectie te
 Voor de HTML is gebruik gemaakt van ```div```, ```ul```, ```form```
 
 ### CSS
-Voor de CSS is gebruik gemaakt kebab-case en custom properties.
+Voor de CSS is gebruik gemaakt ```kebab-case``` en ```custom properties```.
 
 ### Javascript
 Voor Javascript is client-side fetching gebruikt om de website bij te werken zonder het herladen van de pagina.
 
 ### Node.js/Express
-Node.js/Express is gebruikt voor het fetchen van data uit Directus (GET) en het verzenden van data in arrays (POST)
+Node.js/Express is gebruikt voor het fetchen van data uit Directus (```GET```) en het verzenden van data in arrays (```POST```)
 
 ## Installatie
 <!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
