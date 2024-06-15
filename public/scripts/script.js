@@ -55,39 +55,6 @@ imageArts.forEach((art, index) => {
 });
 
 // ============================================
-// Canvas drag
-// ============================================
-const canvasList = document.querySelector('.canvas-list');
-
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    canvasList.addEventListener('mousedown', (e) => {
-        isDown = true;
-        canvasList.classList.add('active');
-        startX = e.pageX - canvasList.offsetLeft;
-        scrollLeft = canvasList.scrollLeft;
-    });
-
-    canvasList.addEventListener('mouseleave', () => {
-        isDown = false;
-        canvasList.classList.remove('active');
-    });
-
-    canvasList.addEventListener('mouseup', () => {
-        isDown = false;
-        canvasList.classList.remove('active');
-    });
-
-    canvasList.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - canvasList.offsetLeft;
-        const walk = (x - startX) * 3; // Scroll-fast
-        canvasList.scrollLeft = scrollLeft - walk;
-    });
-// ============================================
 // Submit button hidden
 // ============================================
 const btnSubmit = document.querySelector('.form-canvas button');
@@ -108,6 +75,11 @@ sectionCanvas.addEventListener('scroll', function() {
 // =========================================================================
 function formEnhancement() {
     const form = document.querySelector('.form-canvas');
+    const loader = document.querySelector('.loader');
+
+    if (loader.classList.contains('hidden')) {
+        loader.classList.remove('hidden');
+    }
 
     // Voeg een extra eigenschap aan de formulierdata toe
     const data = new FormData(form);
@@ -137,6 +109,8 @@ function formEnhancement() {
             // Selecteer het canvas gedeelte uit de DOM en vervang het
             document.querySelector('.canvas-list').innerHTML = responseDOM.innerHTML;
             //console.log(responseHTML);
+
+            loader.classList.add('hidden');
         });
         event.preventDefault();
 }

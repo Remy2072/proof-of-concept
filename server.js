@@ -8,6 +8,7 @@ import fetchJson from './helpers/fetch-json.js'
 const apiUrl = 'https://fdnd-agency.directus.app/items/'
 const f_fabrique_art_objects = apiUrl + 'fabrique_art_objects'
 let imageArray = []
+let imagesOnLoad = 15;
 
 // Maak een nieuwe express app aan
 const app = express()
@@ -33,8 +34,8 @@ app.get('/', function (request, response) {
     fetchJson(f_fabrique_art_objects).then((arts) => {
         // Check of imageArray leeg is
         if (imageArray.length === 0) {
-            // Haal de eerste 12 IDs op en voeg ze toe aan de imageArray
-            imageArray = arts.data.slice(0, 15).map(art => art.id)
+            // Haal de eerste 15 IDs op en voeg ze toe aan de imageArray
+            imageArray = arts.data.slice(0, imagesOnLoad).map(art => art.id)
         }
         // Check of elke item ID deel is van de imageArray en haal ze op
         const selectedArts = imageArray.map(id => arts.data.find(art => art.id === id))
@@ -50,8 +51,9 @@ app.post('/', function (request, response) {
     fetchJson(f_fabrique_art_objects).then((arts) => {
         // Maak een nieuwe variable aan
         let newIds = []
-        // Check of de variablen minder dan 5 items bevat
-        while (newIds.length < 5) {
+        let imagesOnUpdate = 100
+        // Check of de variablen minder dan 100 items bevat
+        while (newIds.length < imagesOnUpdate) {
             // Haal een random nummer op gebasseerd op de lengte van de gefetchde arts
             const randomArt = arts.data[Math.floor(Math.random() * arts.data.length)]
             // Push de random ID naar de newIds variable

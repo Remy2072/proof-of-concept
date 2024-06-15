@@ -6,6 +6,10 @@
     --dark-grey: #464646;
     --black: #000000;
     --yellow: #f9ff1e;
+    --blue: #79aafa;
+    --pink: #ed3c8a;
+    --yellow-2: #faff1e;
+    --orange: #ffc200;
 }
 
 * {
@@ -263,7 +267,7 @@ nav .nav-list .nav-item:nth-child(8) {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     list-style-type: "";
-    width: 200%;
+    width: 100%;
 }
 
 .canvas-item {
@@ -512,6 +516,26 @@ footer {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--black);
+}
+
+/* ============================================= */
+/* Loader */
+/* ============================================= */
+.loader {
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--blue);
+    border: 0.1rem solid var(--black);
+    clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    animation: l1 2s infinite cubic-bezier(0.3,1,0,1);
+    margin-top: 2rem;
+}
+
+@keyframes l1 {
+    25% {border-radius: 0;background: var(--pink) ;clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)}
+    50% {border-radius: 0;background: var(--yellow-2) ;clip-path: polygon(50% 0,50% 0,100% 100%,0 100%)}
+    75% {border-radius: 0;background: var(--orange) ;clip-path: polygon(0 0,100% 0,100% 100%,0 100%)}
 }
 /* ============================================= */
 /* Keyframes */
