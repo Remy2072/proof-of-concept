@@ -50,8 +50,8 @@ app.post('/', function (request, response) {
     fetchJson(f_fabrique_art_objects).then((arts) => {
         // Maak een nieuwe variable aan
         let newIds = []
-        // Check of de variablen minder dan 3 items bevat
-        while (newIds.length < 3) {
+        // Check of de variablen minder dan 5 items bevat
+        while (newIds.length < 5) {
             // Haal een random nummer op gebasseerd op de lengte van de gefetchde arts
             const randomArt = arts.data[Math.floor(Math.random() * arts.data.length)]
             // Push de random ID naar de newIds variable

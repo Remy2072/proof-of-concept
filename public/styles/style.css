@@ -55,6 +55,7 @@ main {
     border: 0.1rem solid var(--dark-grey);
     font-weight: 600;
     font-size: 1rem;
+    transition: 0.2s ease-in;
 }
 
 .btn-secondary {
@@ -66,6 +67,7 @@ main {
     border: 0.1rem solid var(--black);
     font-weight: 600;
     font-size: 1rem;
+    transition: 0.2s ease-in;
 }
 
 .btn-primary:hover, .btn-secondary:hover {
@@ -83,6 +85,7 @@ main {
     border: 0.1rem solid var(--dark-grey);
     font-weight: 600;
     font-size: 1rem;
+    transition: 0.2s ease-in;
 }
 
 .btn-tertiary:hover {
@@ -211,7 +214,7 @@ nav .nav-list .nav-item:last-child button::before {
     justify-content: center;
     align-items: center;
     content: url('../assets/icon-menu.svg');
-    width: 1rem;
+    width: 0.5rem;
     height: 1rem;
     margin-right: 0.5rem;
 }
@@ -256,20 +259,16 @@ nav .nav-list .nav-item:nth-child(8) {
 }
 
 .canvas-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    flex-wrap: wrap;
-    list-style-type: none;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    list-style-type: "";
+    width: 200%;
 }
 
 .canvas-item {
-    margin-right: 1rem;
-    margin-bottom: 1rem;
     background-color: var(--dark-grey);
-    width: calc(100%/3 - 1rem);
+    width: 100%;
     height: 5rem;
     display: flex;
     align-items: center;
@@ -279,16 +278,13 @@ nav .nav-list .nav-item:nth-child(8) {
     animation-name: itemPop;
     animation-duration: 0.2s;
     animation-timing-function: ease-in;
+    transition: 0.2s ease-in;
 }
 
 .canvas-item:hover {
     transform: scale(1.1);
     border: 0.1rem solid var(--yellow);
     z-index: 10;
-}
-
-.canvas-item:nth-child(3n) {
-    margin-right: 0;
 }
 
 .canvas-item picture img {
@@ -378,19 +374,144 @@ nav .nav-list .nav-item:nth-child(8) {
 /* Footer */
 /* ============================================= */
 footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     background-color: var(--white);
-    height: 10rem;
+    border-top: 0.1rem solid var(--black);
+    width: 100%;
 }
 
-footer .footer-section {
-    flex: 1;
-    border-right: 0.1rem solid var(--black);
-    height: 100%;
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    border-bottom: 0.1rem solid var(--black);
+}
 
+.footer-bottom {
+    width: 100%;
+    padding: 2rem 1rem;
+}
+
+.footer-top .menu-list {
+    list-style-type: "";
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    padding: 1rem;
+}
+
+.menu-list .menu-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.menu-list .menu-item a {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--black);
+    text-wrap: nowrap;
+}
+
+.menu-list .menu-item:hover {
+    text-decoration: underline;
+}
+
+.footer-top .footer-section {
+    flex: 1;
+    border-bottom: 0.1rem solid var(--black);
+    width: 100%;
+    height: 100%;
+}
+
+.footer-top .footer-section:last-child {
+    border-right: none;
+    border-bottom: none;
+}
+
+.footer-top .footer-section:nth-child(1) {
+    flex: 2;
+}
+
+.footer-list {
+    list-style-type: "";
+    margin-top: 1rem;
+}
+
+.footer-list .footer-item {
+    width: 100%;
+}
+
+.footer-list .footer-item a {
+    color: var(--black);
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.footer-list .footer-item a:hover {
+    text-decoration: underline;
+}
+
+.footer-top .footer-section:nth-child(2) {
+    font-size: 1.5rem;
+}
+
+.footer-top .footer-section:last-child .footer-list .footer-item:nth-child(1) a::before {
+    content: url('../assets/icon-instagram.svg');
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+
+.footer-top .footer-section:last-child .footer-list .footer-item:nth-child(2) a::before {
+    content: url('../assets/icon-facebook.svg');
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+
+.footer-top .footer-section:last-child .footer-list .footer-item:nth-child(3) a::before {
+    content: url('../assets/icon-youtube.svg');
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+
+/* ============================================= */
+/* Scrollbar */
+/* ============================================= */
+::-webkit-scrollbar {
+    width: 0.75rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--yellow);
+    border: 0.1rem solid var(--black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--black);
 }
 /* ============================================= */
 /* Keyframes */
@@ -405,7 +526,7 @@ footer .footer-section {
 /* ============================================= */
 /* Media Query */
 /* ============================================= */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1120px) {
     nav .nav-list .nav-item:nth-child(1),
     .nav-list .nav-item:nth-child(2),
     .nav-list .nav-item:nth-child(3),
@@ -415,17 +536,23 @@ footer .footer-section {
     .nav-list .nav-item:nth-child(8) {
         display: block;
     }
+}
+@media only screen and (min-width: 768px) {
+    .canvas-list {
+        grid-template-columns: repeat(5, 1fr);
+    }
 
     .canvas-item {
-        flex: 1 0 calc(100%/5 - 1rem);
         height: 10rem;
     }
 
-    .canvas-item:nth-child(3n) {
-        margin-right: 1rem;
+    .footer-top {
+        flex-direction: row;
+        height: 30rem;
     }
 
-    .canvas-item:nth-child(5n) {
-        margin-right: 0;
+    .footer-top .footer-section {
+        border-bottom: none;
+        border-right: 0.1rem solid var(--black);
     }
 }

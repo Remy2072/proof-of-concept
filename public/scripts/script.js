@@ -53,6 +53,40 @@ imageArts.forEach((art, index) => {
         imageToolTips[index].classList.toggle('hidden');
     });
 });
+
+// ============================================
+// Canvas drag
+// ============================================
+const canvasList = document.querySelector('.canvas-list');
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    canvasList.addEventListener('mousedown', (e) => {
+        isDown = true;
+        canvasList.classList.add('active');
+        startX = e.pageX - canvasList.offsetLeft;
+        scrollLeft = canvasList.scrollLeft;
+    });
+
+    canvasList.addEventListener('mouseleave', () => {
+        isDown = false;
+        canvasList.classList.remove('active');
+    });
+
+    canvasList.addEventListener('mouseup', () => {
+        isDown = false;
+        canvasList.classList.remove('active');
+    });
+
+    canvasList.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - canvasList.offsetLeft;
+        const walk = (x - startX) * 3; // Scroll-fast
+        canvasList.scrollLeft = scrollLeft - walk;
+    });
 // ============================================
 // Submit button hidden
 // ============================================
