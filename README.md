@@ -45,7 +45,7 @@ Node.js/Express is gebruikt voor het fetchen van data uit Directus (GET) en het 
 Voor het gebruik van dit project is het nodig om Node.js./Express te installeren in je eigen project.
 Gebruik het volgende om Node.js te installeren:
 
-NPM Install
+```NPM Install```
 
 ## Bronnen
 
