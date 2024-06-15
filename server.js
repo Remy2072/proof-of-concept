@@ -34,10 +34,10 @@ app.get('/', function (request, response) {
         // Check of imageArray leeg is
         if (imageArray.length === 0) {
             // Haal de eerste 12 IDs op en voeg ze toe aan de imageArray
-            imageArray = arts.data.slice(0, 18).map(art => art.id)
+            imageArray = arts.data.slice(0, 15).map(art => art.id)
         }
         // Check of elke item ID deel is van de imageArray en haal ze op
-        const selectedArts = arts.data.filter(art => imageArray.includes(art.id))
+        const selectedArts = imageArray.map(id => arts.data.find(art => art.id === id))
         // Log de imageArray
         console.log(imageArray)
         // Render de pagina
@@ -54,11 +54,8 @@ app.post('/', function (request, response) {
         while (newIds.length < 3) {
             // Haal een random nummer op gebasseerd op de lengte van de gefetchde arts
             const randomArt = arts.data[Math.floor(Math.random() * arts.data.length)]
-            // Check of imageArray en newIds niet de ID bevatten die random is opgehaald
-            if (!imageArray.includes(randomArt.id) && !newIds.includes(randomArt.id)) {
-                // Push de random ID naar de newIds variable
-                newIds.push(randomArt.id)
-            }
+            // Push de random ID naar de newIds variable
+            newIds.push(randomArt.id)
         }
         // Voeg de newIds array toe aan de imageArray
         imageArray = [...imageArray, ...newIds]
@@ -66,7 +63,7 @@ app.post('/', function (request, response) {
         if (request.body.enhanced) {
             // Render de index pagina
             fetchJson(f_fabrique_art_objects).then((arts) => {
-                const selectedArts = arts.data.filter(art => imageArray.includes(art.id))
+                const selectedArts = imageArray.map(id => arts.data.find(art => art.id === id))
                 response.render('index', { arts: selectedArts, images: imageArray })
         })
         } else {

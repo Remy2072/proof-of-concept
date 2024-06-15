@@ -53,44 +53,96 @@ imageArts.forEach((art, index) => {
         imageToolTips[index].classList.toggle('hidden');
     });
 });
+// ============================================
+// Submit button hidden
+// ============================================
+const btnSubmit = document.querySelector('.form-canvas button');
+btnSubmit.classList.add('hidden');
+// ============================================
+// Canvas list scroll
+// ============================================
+const sectionCanvas = document.querySelector('.section-canvas');
 
+sectionCanvas.addEventListener('scroll', function() {
+    if (sectionCanvas.scrollTop + sectionCanvas.clientHeight >= sectionCanvas.scrollHeight) {
+        console.log("bodem bereikt");
+        formEnhancement();
+    }
+});
 // =========================================================================
-// Afbeeldingen automatisch laden
+// Enhancement: Canvas
 // =========================================================================
-const forms = document.querySelectorAll('form');
+function formEnhancement() {
+    const form = document.querySelector('.form-canvas');
 
-forms.forEach((form, index) => {
-    console.log(index);
-    form.addEventListener('submit', function(event) {
-        // Voeg een extra eigenschap aan de formulierdata toe
-        const data = new FormData(this);
-        data.append('enhanced', true);
+    // Voeg een extra eigenschap aan de formulierdata toe
+    const data = new FormData(form);
+    data.append('enhanced', true);
 
-        fetch(this.action, {
-            // De POST method ophalen
-            method: this.method,
-            // De data van de form meegeven aan de body
-            body: new URLSearchParams(data)
-        }).then(function(response) {
-            // Als de server een antwoord geeft, krijgen we een stream terug
-            // We willen hiervan de text gebruiken, wat in dit geval HTML teruggeeft
-            return response.text();
+    fetch(form.action, {
+        // De POST method ophalen
+        method: form.method,
+        // De data van de form meegeven aan de body
+        body: new URLSearchParams(data)
+    }).then(function(response) {
+        // Als de server een antwoord geeft, krijgen we een stream terug
+        // We willen hiervan de text gebruiken, wat in dit geval HTML teruggeeft
+        return response.text();
 
         }).then(function(responseHTML) {
             // Maak tijdelijk DOM element aan
             const tempDOM = document.createElement('div');
             // Plaats de responseHTML in de tijdelijke DOM
             tempDOM.innerHTML = responseHTML;
-            // Selecteer het rating gedeelte uit de tijdelijke DOM
+            // Selecteer het canvas gedeelte uit de tijdelijke DOM
             const responseDOM = tempDOM.querySelector('.canvas-list');
 
             // log
             console.log(responseDOM);
             console.log(document.querySelector('canvas-list'));
-            // Selecteer het rating gedeelte uit de DOM en vervang het
+            // Selecteer het canvas gedeelte uit de DOM en vervang het
             document.querySelector('.canvas-list').innerHTML = responseDOM.innerHTML;
             //console.log(responseHTML);
         });
         event.preventDefault();
+}
+// =========================================================================
+// Enhancement: Filter
+// =========================================================================
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach((form, index) => {
+        console.log(index);
+        form.addEventListener('submit', function(event) {
+            // Voeg een extra eigenschap aan de formulierdata toe
+            const data = new FormData(this);
+            data.append('enhanced', true);
+    
+            fetch(this.action, {
+                // De POST method ophalen
+                method: this.method,
+                // De data van de form meegeven aan de body
+                body: new URLSearchParams(data)
+            }).then(function(response) {
+                // Als de server een antwoord geeft, krijgen we een stream terug
+                // We willen hiervan de text gebruiken, wat in dit geval HTML teruggeeft
+                return response.text();
+    
+            }).then(function(responseHTML) {
+                // Maak tijdelijk DOM element aan
+                const tempDOM = document.createElement('div');
+                // Plaats de responseHTML in de tijdelijke DOM
+                tempDOM.innerHTML = responseHTML;
+                // Selecteer het canvas gedeelte uit de tijdelijke DOM
+                const responseDOM = tempDOM.querySelector('.canvas-list');
+    
+                // log
+                console.log(responseDOM);
+                console.log(document.querySelector('canvas-list'));
+                // Selecteer het canvas gedeelte uit de DOM en vervang het
+                document.querySelector('.canvas-list').innerHTML = responseDOM.innerHTML;
+                //console.log(responseHTML);
+            });
+            event.preventDefault();
+        });
     });
-});
