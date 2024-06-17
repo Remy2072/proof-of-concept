@@ -14,37 +14,35 @@
     font-weight: 400;
 }
 
-.forecast-info {
-    display: flex;
-    flex-direction: column;
-}
-
 .forecast-datum {
     margin-top: 1.875rem;
+    font-weight: 700;
 }
 
 .forecast-ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1.875rem;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: baseline;
 }
 
 .forecast-ul li {
     display: flex;
-    align-items: center;
-}
+    align-items: baseline;
+    min-width: 120px;
+} 
 
 .temp::before {
     content: url(/img/zon.svg);
     margin-right: 10px;
     height: 1.5rem;
     width: 1.5rem;
+    display: block;
+    transform: translateY(6px);
 }
 
 .water::before {
     content: url(/img/regen.svg);
-    margin-right: 1.25rem;
+    margin-right: 10px;
     height: 1.5rem;
     width: 1.5rem;
     transform: translateY(2px);
@@ -55,7 +53,7 @@
     margin-left: 8px;
     height: 1.5rem;
     width: 1.5rem;
-}
+} 
 
 .forecast-border {
     width: 100%;
@@ -105,14 +103,13 @@
 }
 
 @media only screen and (min-width: 768px) {
-    .forecast-info {
-        flex-direction: row;
-        align-items: baseline;
-        gap: 1.5rem;
-    }
 
     .forecast-border .content-wrapper {
         padding-top: 10px;
+    }
+
+    .forecast-border{
+        margin-top: 3.125rem;
     }
 
     .forecast-border::before {
@@ -128,6 +125,22 @@
         margin-top: 1rem;
     }
 
+    .forecast-info  {
+        display: flex;
+        align-items: baseline;
+        gap: 1.5rem;
+    }
+
+    .forecast-info-border::after {
+        margin-top: 8px;
+        display: flex;
+        content: "";
+        width: 75%;
+        height: 1px;
+        background-color: var(--c150);
+
+    }
+
     .submit-text {
         width: 11.875rem;
         margin-right: 10px;
@@ -137,3 +150,5 @@
         width: 5.25rem;
     }
 }
+
+

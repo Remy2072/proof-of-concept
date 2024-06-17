@@ -3,14 +3,16 @@
         <ul class="ul-container">
             <li><h2 class="heading-forecast">Upcoming 5 days</h2></li>
             <% forecast2.forEach(forecast => { %>
-            <li class="forecast-info">
-                <p class="forecast-datum"><%= forecast.date %></p>
-                <ul class="forecast-ul">
-                    <li class="temp"><%= forecast.minTemp %>° / <%= forecast.maxTemp %>°</li>
-                    <li class="water"><%= forecast.precipitation %>mm</li>
-                    <li class="wind"><%= forecast.windDirection %></li>
-                </ul>
-            </li>
+            <div class="forecast-info-border">
+                <li class="forecast-info">
+                    <p class="forecast-datum"><%= forecast.dayOfWeek %></p>
+                    <ul class="forecast-ul">
+                        <li class="temp"><%= forecast.minTemp %>° / <%= forecast.maxTemp %>°</li>
+                        <li class="water"><%= forecast.precipitation %>mm</li>
+                        <li class="wind"><%= forecast.windDirection %></li>
+                    </ul>
+                </li>
+            </div>
             <% }); %>
         </ul>
     </div>
