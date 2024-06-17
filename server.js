@@ -50,6 +50,17 @@ app.get("/", async function (request, response) {
         forecast: forecast.forecast || [],
         activities2: activities.activities,
     });
+    
+    if (Array.isArray(forecast.forecast)) {
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+     
+        forecast.forecast.forEach(forecast => {
+            const date = new Date(forecast.date);
+            const dayIndex = date.getUTCDay();
+            forecast.dayOfWeek = daysOfWeek[dayIndex];
+        });
+        console.log(forecast)
+    }
 });
 
 // Set the port number for the express app
