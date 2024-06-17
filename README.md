@@ -3,6 +3,7 @@ DEPT® Weather Planner.
 
 ## Inhoudsopgave
   * [Beschrijving](#beschrijving)
+  * [Gebruik](#gebruik)
   * [Installatie](#installatie)
   * [Instructies](#instructies)
   * [Licentie](#licentie)
