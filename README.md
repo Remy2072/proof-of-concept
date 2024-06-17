@@ -13,6 +13,9 @@ Het concept is simpel: je gaat een website maken, getiteld "DEPT® Weather Plann
 ### Screenshot
 <img width="880" alt="Scherm­afbeelding 2024-06-04 om 19 20 27" src="https://github.com/Remy2072/proof-of-concept/assets/70781820/445bdf84-c5c3-43d2-bca2-570314ca3908">
 
+### Gebruik
+De website is heel simpel te gebruiken wanneer de pagina is ingeladen zie je gelijk rechts boven een widget in die widget zie je de huidige temperatuur en een klein tekstje. Als je wat verder omlaag scrollt dan zie je links onder de weervoorspelling voor de aankomende vijf dagen. Reachts daarvan zie je activiteiten die je wel en niet kan doen met het huidige weer van vandaag.
+
 ### Live link
 [dept-weather-planner](https://dept-r-weather-planner.onrender.com/)
 
