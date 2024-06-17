@@ -32,15 +32,15 @@ app.get("/", async function (request, response) {
     });
     
     if (Array.isArray(forecast.forecast)) {
-          const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
      
-          forecast.forecast.forEach(forecast => {
+        forecast.forecast.forEach(forecast => {
             const date = new Date(forecast.date);
             const dayIndex = date.getUTCDay();
             forecast.dayOfWeek = daysOfWeek[dayIndex];
-          });
-          console.log(forecast)
-        }
+        });
+        console.log(forecast)
+    }
 });
 
 // Set the port number for the express app
