@@ -24,15 +24,18 @@ app.get("/", async function (request, response) {
     const activities = await fetchJson(apiUrl + "/get-things-to-do");
 
     if (forecast.forecast.metric === "FAHRENHEIT") {
-        // Convert Fahrenheit to Celsius
-        forecast.forecast.minTemp = ((forecast.forecast.minTemp - 32) * 5) / 9;
-        forecast.forecast.maxTemp = ((forecast.forecast.maxTemp - 32) * 5) / 9;
+        // Convert Fahrenheit to Celsius and round to the nearest integer
+        forecast.forecast.minTemp = Math.round(((forecast.forecast.minTemp - 32) * 5) / 9);
+        forecast.forecast.maxTemp = Math.round(((forecast.forecast.maxTemp - 32) * 5) / 9);
         console.log(forecast.forecast.minTemp);
     }
+    
 
     if (weather.temperature.metric === "FAHRENHEIT") {
         // Convert Fahrenheit to Celsius
         weather.temperature.temp = ((weather.temperature.temp - 32) * 5) / 9;
+        // Round the temperature to the nearest integer
+        weather.temperature.temp = Math.round(weather.temperature.temp);
     }
 
     const updatedWeatherInfo = weather.weatherInfo.map((info) => {
