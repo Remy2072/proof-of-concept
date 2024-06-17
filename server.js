@@ -18,14 +18,34 @@ app.use(express.static("public"));
 // Enable URL-encoded data parsing
 app.use(express.urlencoded({ extended: true }));
 
-// Define the route for the home page
 app.get("/", async function (request, response) {
     const forecast = await fetchJson(apiUrl + "/get-forecast");
     const weather = await fetchJson(apiUrl + "/get-weather");
     const activities = await fetchJson(apiUrl + "/get-things-to-do");
 
+    if (forecast.forecast.metric === "FAHRENHEIT") {
+        // Convert Fahrenheit to Celsius
+        forecast.forecast.minTemp = ((forecast.forecast.minTemp - 32) * 5) / 9;
+        forecast.forecast.maxTemp = ((forecast.forecast.maxTemp - 32) * 5) / 9;
+        console.log(forecast.forecast.minTemp);
+    }
+
+    if (weather.temperature.metric === "FAHRENHEIT") {
+        // Convert Fahrenheit to Celsius
+        weather.temperature.temp = ((weather.temperature.temp - 32) * 5) / 9;
+    }
+
+    const updatedWeatherInfo = weather.weatherInfo.map((info) => {
+        const titleWithTemp = info.title
+            .replace("{{ CELCIUS }}", "~ " + weather.temperature.temp)
+            .replace("°C", " °");
+        return { ...info, title: titleWithTemp };
+    });
+
+    weather.weatherInfo = updatedWeatherInfo;
+
     if (Array.isArray(forecast.forecast)) {
-        const daysOfWeek = [
+        const days = [
             "Sunday",
             "Monday",
             "Tuesday",
@@ -34,13 +54,32 @@ app.get("/", async function (request, response) {
             "Friday",
             "Saturday",
         ];
+        const months = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "June",
+            "July",
+            "Aug",
+            "Sept",
+            "Oct",
+            "Nov",
+            "Dec",
+        ];
 
         forecast.forecast.forEach((forecast) => {
-            const date = new Date(forecast.date);
-            const dayIndex = date.getUTCDay();
-            forecast.dayOfWeek = daysOfWeek[dayIndex];
+            // Get the date of forecast
+            const d = new Date(forecast.date);
+            // Get the day of forecast
+            const day = days[d.getUTCDay()];
+            // Get the date of forecast
+            const date2 = d.getDate(forecast.date);
+            // Get the month of forecast
+            const month = months[d.getMonth()];
+            forecast.dayOfWeek = day + " " + date2 + "th " + month;
         });
-        console.log(forecast);
     }
 
     response.render("index", {
@@ -50,17 +89,6 @@ app.get("/", async function (request, response) {
         forecast: forecast.forecast || [],
         activities2: activities.activities,
     });
-    
-    if (Array.isArray(forecast.forecast)) {
-        const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-     
-        forecast.forecast.forEach(forecast => {
-            const date = new Date(forecast.date);
-            const dayIndex = date.getUTCDay();
-            forecast.dayOfWeek = daysOfWeek[dayIndex];
-        });
-        console.log(forecast)
-    }
 });
 
 // Set the port number for the express app

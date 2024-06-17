@@ -28,8 +28,8 @@
 .forecast-ul li {
     display: flex;
     align-items: baseline;
-    min-width: 120px;
-} 
+    min-width: 7.5rem;
+}
 
 .temp::before {
     content: url(/img/zon.svg);
@@ -53,7 +53,7 @@
     margin-left: 8px;
     height: 1.5rem;
     width: 1.5rem;
-} 
+}
 
 .forecast-border {
     width: 100%;
@@ -103,12 +103,11 @@
 }
 
 @media only screen and (min-width: 768px) {
-
     .forecast-border .content-wrapper {
         padding-top: 10px;
     }
 
-    .forecast-border{
+    .forecast-border {
         margin-top: 3.125rem;
     }
 
@@ -125,20 +124,23 @@
         margin-top: 1rem;
     }
 
-    .forecast-info  {
+    .forecast-info {
         display: flex;
         align-items: baseline;
         gap: 1.5rem;
+    }
+
+    .forecast-datum {
+        width: 10.625rem;
     }
 
     .forecast-info-border::after {
         margin-top: 8px;
         display: flex;
         content: "";
-        width: 75%;
+        width: 85%;
         height: 1px;
         background-color: var(--c150);
-
     }
 
     .submit-text {
@@ -150,5 +152,3 @@
         width: 5.25rem;
     }
 }
-
-

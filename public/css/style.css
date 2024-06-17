@@ -28,7 +28,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
-    list-style-type: none;
+    list-style-type: " ";
 }
 
 .container {
@@ -51,11 +51,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 48px;
 }
 
 @media only screen and (min-width: 768px) {
     .content-wrapper {
         padding: 3.438rem;
+    }
+
+    .footer {
+        margin-top: 0px;
     }
 }
 
