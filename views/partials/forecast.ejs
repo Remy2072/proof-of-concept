@@ -1,10 +1,10 @@
-<section data-scroll-theme class="area-2">
+<section data-scroll-theme class="area-2 hidden">
     <div class="content-wrapper">
-        <ul class="ul-container">
+        <ul class="ul-container hidden">
             <li><h2 class="heading-forecast">Upcoming 5 days</h2></li>
             <% forecast2.forEach(forecast => { %>
             <div class="forecast-info-border">
-                <li class="forecast-info">
+                <li class="forecast-info hidden">
                     <p class="forecast-datum"><%= forecast.dayOfWeek %></p>
                     <ul class="forecast-ul">
                         <li class="temp"><%= forecast.minTemp %>° / <%= forecast.maxTemp %>°</li>
@@ -16,14 +16,14 @@
             <% }); %>
         </ul>
     </div>
-    <div class="forecast-border">
+    <div class="forecast-border hidden">
         <div class="content-wrapper">
             <h2 class="heading-forecast2">Want to get a daily forecast?</h2>
             <form action="https://dtnl-frontend-case.vercel.app/api/post-subscribe" method="post">
                 <label for="email" aria-label="email-form">
-                    <input class="submit-text" type="email" id="email" name="email" placeholder="Enter your e-mailaddress" required>
+                    <input class="submit-text hidden" type="email" id="email" name="email" placeholder="Enter your e-mailaddress" required>
                 </label>
-                <button class="submit-button" type="submit">Submit</button>
+                <button class="submit-button hidden" type="submit">Submit</button>
            </form>
         </div>
     </div>

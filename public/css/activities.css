@@ -41,6 +41,19 @@
     font-weight: 400;
 }
 
+a {
+    display: block;
+    color: var(--color-black);
+    cursor: pointer; 
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+a:hover {
+    transform: scale(1.1); 
+}
+
 .list-item {
     margin-top: 10px;
 }
