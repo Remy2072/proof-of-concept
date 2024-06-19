@@ -34,13 +34,11 @@
 
 .hidden {
     opacity: 0;
-    filter: blur(5px);
-    transition: all 1s;
+    transition: all 1ms;
 }
 
 .show {
     opacity: 1;
-    filter: blur(0px);
 }
 
 .container {
@@ -59,7 +57,7 @@
 .footer {
     grid-area: footer;
     background-color: var(--black);
-    height: 100svh;
+    height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
