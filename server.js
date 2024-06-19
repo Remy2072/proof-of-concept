@@ -94,6 +94,14 @@ app.get("/", async function (request, response) {
     });
 });
 
+app.post("/post-subscribe", function(request, response) {
+
+    const email = request.body.email;
+
+    console.log(email)
+    response.render("applied", {e: email})
+})
+
 // Set the port number for the express app
 const port = process.env.PORT || 8000;
 app.set("port", port);

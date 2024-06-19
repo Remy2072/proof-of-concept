@@ -1,44 +1,18 @@
-// Meta tag color change
-function throttle(func, timeFrame) {
-    var lastTime = 0;
-    return function(...args) {
-        var now = new Date().getTime();
-        if (now - lastTime >= timeFrame) {
-            func(...args);
-            lastTime = now;
-        }
-    };
-}
-
 const ogColor = document.querySelector('meta[name="theme-color"]')?.getAttribute('content');
 
-const handleScroll = throttle(() => {
-    const targets = document.querySelectorAll('[data-scroll-theme]')
-    const isTop = Array.from(targets).map((target) => {
-        const rect = target.getBoundingClientRect();
-        if (rect.y > 1) {
-            return null;
-        }
-        return {
-            target,
-            rect
-        }
-    }).filter(Boolean).sort((a, b) => b.rect.y - a.rect.y)[0]
-    if (isTop) {
+const observer2 = new IntersectionObserver(entries => {
+    const topmostEntry = entries.filter(entry => entry.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+    
+    const color = topmostEntry 
+        ? window.getComputedStyle(topmostEntry.target).getPropertyValue('background-color') 
+        : ogColor;
+    
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', color);
+});
 
-        const color = window.getComputedStyle(isTop.target).getPropertyValue('background-color')
-        console.log(color)
-        if (color) {
-            document.querySelector('meta[name="theme-color"]')?.setAttribute('content', color);
-        }
-    } else if (ogColor) {
-        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', ogColor);
-    }
-}, 100)
+document.querySelectorAll('[data-scroll-theme]').forEach(target => observer2.observe(target));
 
-document.addEventListener('scroll', handleScroll, {
-    passive: true
-})
 
 // Introduction read more button
 document.querySelector('.read-more-container').addEventListener('click', event => {
