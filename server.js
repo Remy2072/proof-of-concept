@@ -30,7 +30,6 @@ app.get("/", async function (request, response) {
         console.log(forecast.forecast.minTemp);
     }
     
-
     if (weather.temperature.metric === "FAHRENHEIT") {
         // Convert Fahrenheit to Celsius
         weather.temperature.temp = ((weather.temperature.temp - 32) * 5) / 9;
