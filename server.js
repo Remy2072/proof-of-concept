@@ -18,6 +18,7 @@ app.use(express.static("public"));
 // Enable URL-encoded data parsing
 app.use(express.urlencoded({ extended: true }));
 
+// Fetching the api links
 app.get("/", async function (request, response) {
     const forecast = await fetchJson(apiUrl + "/get-forecast");
     const weather = await fetchJson(apiUrl + "/get-weather");
@@ -27,7 +28,6 @@ app.get("/", async function (request, response) {
         // Convert Fahrenheit to Celsius and round to the nearest integer
         forecast.forecast.minTemp = Math.round(((forecast.forecast.minTemp - 32) * 5) / 9);
         forecast.forecast.maxTemp = Math.round(((forecast.forecast.maxTemp - 32) * 5) / 9);
-        console.log(forecast.forecast.minTemp);
     }
     
     if (weather.temperature.metric === "FAHRENHEIT") {
@@ -93,11 +93,11 @@ app.get("/", async function (request, response) {
     });
 });
 
+// Post route for e-mail
 app.post("/post-subscribe", function(request, response) {
 
     const email = request.body.email;
 
-    console.log(email)
     response.render("applied", {e: email})
 })
 

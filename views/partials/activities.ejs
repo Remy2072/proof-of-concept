@@ -1,28 +1,28 @@
 <section data-scroll-theme class="area-3 hidden">
-    <div class="content-wrapper">
+   <div class="content-wrapper">
        <div class="widget hidden">
-          <h3 class="widget-temp"><%= weather3.temp %>˚</h3>
-          <div>
-             <h4 class="widget-heading"><%= weather2[3].title %></h4>
-             <p class="widget-text"><%= weather2[3].description %></p>
-          </div>
+           <h3 class="widget-temp"><%= weather3.temp %>˚</h3>
+           <div>
+               <h4 class="widget-heading"><%= weather2[3].title %></h4>
+               <p class="widget-text"><%= weather2[3].description %></p>
+           </div>
        </div>
        <div class="activities hidden">
-          <h5 class="activities-heading hidden">Some things you could do:</h5>
-          <% activities2.forEach(activities2 => { %>
-          <a href="#/">
-             <ul class="activities-list hidden">
-                <li class="list-item">
-                   <img class="list-img" src="<%= activities2.mainImageUrl %>" alt="foto van activiteit">
-                   <div class="list-container">
-                      <h6 class="list-title"><%= activities2.title %></h6>
-                      <p class="list-description" maxlength="50"><%= activities2.shortDescription %></p>
-                      <hr class="list-line">
-                   </div>
-                </li>
-             </ul>
-          </a>
-          <% }); %>
+           <h5 class="activities-heading hidden">Some things you could do:</h5>
+           <% activities2.forEach(activities2 => { %>
+           <a href="#/">
+               <ul class="activities-list hidden">
+                   <li class="list-item">
+                       <img class="list-img" src="<%= activities2.mainImageUrl %>" alt="foto van activiteit">
+                       <div class="list-container">
+                           <h6 class="list-title"><%= activities2.title %></h6>
+                           <p class="list-description" maxlength="50"><%= activities2.shortDescription %></p>
+                           <hr class="list-line">
+                       </div>
+                   </li>
+               </ul>
+           </a>
+           <% }); %>
        </div>
-    </div>
- </section>
+   </div>
+</section>

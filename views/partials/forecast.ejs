@@ -1,7 +1,9 @@
 <section data-scroll-theme class="area-2 hidden">
     <div class="content-wrapper">
         <ul class="ul-container hidden">
-            <li><h2 class="heading-forecast">Upcoming 5 days</h2></li>
+            <li>
+                <h2 class="heading-forecast">Upcoming 5 days</h2>
+            </li>
             <% forecast2.forEach(forecast => { %>
             <div class="forecast-info-border">
                 <li class="forecast-info hidden">
@@ -21,10 +23,10 @@
             <h2 class="heading-forecast2">Want to get a daily forecast?</h2>
             <form action="/post-subscribe" method="post">
                 <label for="email" aria-label="email-form">
-                    <input class="submit-text hidden" type="email" id="email" name="email" placeholder="Enter your e-mailaddress" required>
+                <input class="submit-text hidden" type="email" id="email" name="email" placeholder="Enter your e-mailaddress" required>
                 </label>
                 <button class="submit-button hidden" type="submit">Submit</button>
-           </form>
+            </form>
         </div>
     </div>
- </section>
+</section>
