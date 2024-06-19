@@ -57,7 +57,7 @@
 .footer {
     grid-area: footer;
     background-color: var(--black);
-    height: 100dvh;
+    height: 100lvb;
     display: flex;
     align-items: center;
     justify-content: center;
